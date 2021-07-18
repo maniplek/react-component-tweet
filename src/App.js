@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React ,{useState} from 'react'; 
+import Tweet from './Tweet';
 
-function App() {
+export default function App() {
+  const [users, setUser] = useState([
+    {name: "Andy" , message: "No PLace Like 172.0.0.1" , number:"206K"},
+    {name: "Everyson" , message: "Coding Creates Life" ,number:"90K"},
+    {name: "Tim" , message: "APPLE UPCOMING EVENT", number:"1M"},
+    {name: "Lavy" , message: "We connect Throught DOTS" , number:"54K"}
+  ])
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'> 
+      {users.map(user =>(
+        <Tweet name={user.name} message={user.message} number={user.number} />
+      ))}
     </div>
   );
 }
 
-export default App;
+// STATE AND COMPONENTS IN REACT TWEET
